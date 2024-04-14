@@ -65,10 +65,10 @@ const showCrafts = async() => {
 
 
     craftDiv.append(div1);
-    /*craftDiv.append(div2);
+    craftDiv.append(div2);
     craftDiv.append(div3);
     craftDiv.append(div4);
-    craftDiv.append(div5);*/
+    craftDiv.append(div5);
 
     let modalCounter = 0;
 
@@ -80,7 +80,7 @@ const showCrafts = async() => {
         const img = document.createElement("img");
         img.setAttribute("id", "img-holder");
         img.setAttribute("rel", "modal "+modalCounter);
-        img.src = craft.image;
+        img.src = "/images/" + craft.image;
 
         //console.log(craft._id)
 
@@ -105,7 +105,7 @@ const showCrafts = async() => {
 
         const modalImg = document.createElement("img");
         modalImg.setAttribute("id", "img-modal");
-        modalImg.src = craft.image;
+        modalImg.src = "/images/" + craft.image;
 
         //text area
 
@@ -173,15 +173,66 @@ const showCrafts = async() => {
         console.log(craft._id % 4);
         console.log(craft._id % 5);
         entering right div*/
+        let number = 0;
+        craftsJSON.forEach((divD) => {
+            number++;
+            if(divD == craft){
+                console.log(divD._id +"  "+ craft._id +"  "+ number);
+                
+                if(number == 1){
+                    div1.append(section);
+                }
+                else if(number == 2){
+                    div2.append(section);
+                }
+                else if(number == 3){
+                    div3.append(section);
+                }
+                else if(number == 4){
+                    div4.append(section);
+                }
+                else if(number == 5){
+                    div5.append(section);
+                }
+                for(let i = number; i > 5;){
+                    console.log("number match" + i);
+                    i = i-5
 
-        craftsJSON.forEach((craft_id) => {
-            //console.log(craft_id._id, craft._id);
-            let sectionCount = 0;
-            craftsJSON.forEach((craft_id) => {
-                sectionCount++;
-            });
+                    if(i == 1){
+                        div1.append(section);
+                    }
+                    else if(i == 2){
+                        div2.append(section);
+                    }
+                    else if(i == 3){
+                        div3.append(section);
+                    }
+                    else if(i == 4){
+                        div4.append(section);
+                    }
+                    else if(i == 5){
+                        div5.append(section);
+                    }
+                    else {
+                        div1.append(section);
+                        console.log("didnt find")
+                    }
+
+                }
+            }
+            else{
+                return;
+            }
 
 
+
+
+            /*console.log(craft_id._id, craft._id);
+            let sectionCount = craft_id.name;
+            
+            sectionCount++;
+            console.log(sectionCount)
+            
             
 
                 if(sectionCount > 5){
@@ -241,7 +292,7 @@ const showCrafts = async() => {
                         console.log(0);
                     }
                 }
-            
+            */
         });
             
         //
@@ -414,7 +465,6 @@ const populateEditForm = (craft) => {
     form._id.value = craft._id;
     form.name.value = craft.name;
     form.description.value = craft.description;
-    console.log(craft.image)
     document.getElementById("img-prev").src = "images/"+craft.image;
     populateIngredients(craft.supplies);
 }

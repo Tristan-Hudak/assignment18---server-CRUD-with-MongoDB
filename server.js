@@ -403,7 +403,7 @@ app.put("/api/crafts/:id", upload.single("img"), async (req, res) => {
   
   
     if (req.file) {
-        feildsToUpdate.image = "images/" + req.file.filename;
+        feildsToUpdate.image = req.file.filename;
     }
 
     const id = req.params.id;
