@@ -177,7 +177,7 @@ const showCrafts = async() => {
         craftsJSON.forEach((divD) => {
             number++;
             if(divD == craft){
-                console.log(divD._id +"  "+ craft._id +"  "+ number);
+                //console.log(divD._id +"  "+ craft._id +"  "+ number);
                 
                 if(number == 1){
                     div1.append(section);
@@ -195,7 +195,7 @@ const showCrafts = async() => {
                     div5.append(section);
                 }
                 for(let i = number; i > 5;){
-                    console.log("number match" + i);
+                    //console.log("number match" + i);
                     i = i-5
 
                     if(i == 1){
@@ -215,7 +215,7 @@ const showCrafts = async() => {
                     }
                     else {
                         div1.append(section);
-                        console.log("didnt find")
+                        //console.log("didnt find")
                     }
 
                 }
