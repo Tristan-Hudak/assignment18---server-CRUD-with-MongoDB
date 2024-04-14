@@ -80,7 +80,7 @@ const showCrafts = async() => {
         const img = document.createElement("img");
         img.setAttribute("id", "img-holder");
         img.setAttribute("rel", "modal "+modalCounter);
-        img.src = "/images/" + craft.image;
+        img.src = craft.image;
 
         //console.log(craft._id)
 
@@ -105,7 +105,7 @@ const showCrafts = async() => {
 
         const modalImg = document.createElement("img");
         modalImg.setAttribute("id", "img-modal");
-        modalImg.src = "/images/" + craft.image;
+        modalImg.src = craft.image;
 
         //text area
 
@@ -414,6 +414,7 @@ const populateEditForm = (craft) => {
     form._id.value = craft._id;
     form.name.value = craft.name;
     form.description.value = craft.description;
+    console.log(craft.image)
     document.getElementById("img-prev").src = "images/"+craft.image;
     populateIngredients(craft.supplies);
 }
