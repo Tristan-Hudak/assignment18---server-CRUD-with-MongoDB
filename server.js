@@ -407,7 +407,7 @@ app.put("/api/crafts/:id", upload.single("img"), async (req, res) => {
     }
 
     const id = req.params.id;
-    const updateResult = await Craft.updateOne({_id:id},fieldsToUpdate);
+    const updateResult = await Craft.updateOne({_id:id},feildsToUpdate);
     //recipes.push(recipe);
     res.send(updateResult);
 });

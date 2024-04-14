@@ -320,8 +320,6 @@ const addEditCraft = async(e) => {
     let response;
     console.log(...formData);
 
-    
-
     if (form._id.value.trim() == "") {
         console.log("in post");
         response = await fetch("/api/crafts", {
